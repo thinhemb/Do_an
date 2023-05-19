@@ -51,11 +51,11 @@ void draw_objs(const cv::Mat& image,const std::vector<Object>& objs,const std::v
 
 int main(int argc, char **argv)
 {
-	auto start_ = std::chrono::system_clock::now();
-	system("yolo track tracker=/home/thinhdo/Study/Machine-Learning-Basic/c_13_Computer_Vision/3.C++/yolov8_ByteTrack_TensorRT/config_bytetrack.yaml model=/home/thinhdo/Study/Machine-Learning-Basic/c_13_Computer_Vision/3.C++/yolov8_ByteTrack_TensorRT/model_yolov8n/train14/weights/best.pt source=/home/thinhdo/Study/Machine-Learning-Basic/c_13_Computer_Vision/3.C++/yolov8_ByteTrack_TensorRT/data/test.mp4 imgsz=640 conf=0.25 iou=0.65 show save=true device=cpu");
-	auto end_ = std::chrono::system_clock::now();
+	// auto start_ = std::chrono::system_clock::now();
+	// system("yolo track tracker=/home/thinhdo/Study/Machine-Learning-Basic/c_13_Computer_Vision/3.C++/yolov8_ByteTrack_TensorRT/config_bytetrack.yaml model=/home/thinhdo/Study/Machine-Learning-Basic/c_13_Computer_Vision/3.C++/yolov8_ByteTrack_TensorRT/model_yolov8n/train14/weights/best.pt source=/home/thinhdo/Study/Machine-Learning-Basic/c_13_Computer_Vision/3.C++/yolov8_ByteTrack_TensorRT/data/test.mp4 imgsz=640 conf=0.25 iou=0.65 show save=true device=cpu");
+	// auto end_ = std::chrono::system_clock::now();
 
-	printf(" python time cost %2.4lf ms\n", chrono::duration_cast<chrono::microseconds>(end_ - start_).count() / 1000.);
+	// printf(" python time cost %2.4lf ms\n", chrono::duration_cast<chrono::microseconds>(end_ - start_).count() / 1000.);
 	
 	
 	int deviceCount;
@@ -69,7 +69,7 @@ int main(int argc, char **argv)
 	cudaSetDevice(0);
 	std::string engine_file_path;
 
-	engine_file_path = "/home/thinhdo/Study/Machine-Learning-Basic/c_13_Computer_Vision/3.C++/yolov8_ByteTrack_TensorRT/model_yolov8n/train14/weights/best.engine";
+	engine_file_path = "../model_yolov8m/best.engine";
 
 	const std::string path{argv[1]};
 	std::cout << "path= " << path << std::endl;
